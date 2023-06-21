@@ -23,9 +23,7 @@ export default function Box({ data }: any) {
   return (
     <div className="max-w-sm  bg-white rounded-lg shadow-md overflow-hidden">
       <div className="bg-primary px-4 py-3">
-        <h3 className="text-lg font-semibold text-white">
-          Today&apos;s Weather
-        </h3>
+        <h3 className="text-lg font-semibold text-white">Todays Weather</h3>
       </div>
       <div className="p-4 flex flex-col items-center justify-center">
         <img
