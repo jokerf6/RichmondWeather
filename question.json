@@ -1,0 +1,17 @@
+{
+   "questions": [
+    {
+        "question":"hi",
+        "answer":"hi"
+    },
+    {
+        "question":"how are you?",
+        "answer":"I am Fine, what about you?"
+    },
+    {
+        "question":"what is your name",
+        "answer":"I am brad"
+    }
+        
+    ]
+}
