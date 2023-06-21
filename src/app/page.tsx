@@ -13,7 +13,7 @@ export default function Home() {
   }, [useState]);
   async function getWeatherData() {
     await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=Richmond&appid=70f9ac18c602dd7ec994c63d786f961b`
+      `https://api.openweathermap.org/data/2.5/weather?q=Richmond&appid=70f9ac18c602dd7ec994c63d786f961b`
     )
       .then((res) => res.json())
       .then((data) => showWeatherData(data));
