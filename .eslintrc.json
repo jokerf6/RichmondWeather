@@ -1,3 +1,5 @@
 {
+  "no-unused-vars": "off",
+
   "extends": "next/core-web-vitals"
 }
