@@ -17,4 +17,31 @@
 }
 body {
   background-color: "#117697";
+  color: white;
+}
+@layer utilities {
+  @keyframes glitch {
+    0% {
+      transform: none;
+    }
+    20% {
+      transform: skewX(-10deg);
+    }
+    40% {
+      transform: skewX(10deg);
+    }
+    60% {
+      transform: skewX(-10deg);
+    }
+    80% {
+      transform: skewX(10deg);
+    }
+    100% {
+      transform: none;
+    }
+  }
+
+  .glitch-effect {
+    animation: glitch 1s infinite;
+  }
 }

@@ -21,7 +21,7 @@ export default function Box({ data }: any) {
     }
   }
   return (
-    <div className="max-w-sm  bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="absolute top-0 right-5  bg-white rounded-lg shadow-md overflow-hidden z-50 w-48">
       <div className="bg-primary px-4 py-3">
         <h3 className="text-lg font-semibold text-white">
           Today&apos;s Weather

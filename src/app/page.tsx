@@ -31,9 +31,17 @@ export default function Home() {
   }
   return (
     <main>
+      <img
+        alt="homepage"
+        src="https://assets.simpleviewinc.com/simpleview/image/upload/crm/vancouverbc/Tourism-Richmond_Couple-Cycling-West-Dyke-Trail-Steveston_dusk_2B57BE49-84B8-4F47-B05ED058A7D95559_f6ea99d1-c9d5-4d3e-8bd14233781e77ef.jpg"
+        className=" absolute top-0 left-0 w-screen h-screen"
+      />
+      <div className="absolute top-0 left-0 w-screen h-screen bg-black opacity-10"></div>
+
       <Nav />
-      <div className=" w-screen h-screen bg-primary flex flex-col gap-8">
-        {Data !== null ? <WeatherBox data={Data} /> : <div></div>}
+      {Data !== null ? <WeatherBox data={Data} /> : <div></div>}
+
+      <div className=" w-screen h-screen bg-primary flex flex-col-reverse">
         {Data !== null ? <Chat /> : <div></div>}
       </div>
     </main>

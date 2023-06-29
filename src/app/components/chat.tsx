@@ -15,6 +15,7 @@ export default function Home() {
     const newMessage = { content: inputMessage, sender: "user" };
 
     setMessages([...messages, newMessage]);
+    console.log(messages);
     setInputMessage("");
     boot(newMessage);
   };
@@ -29,45 +30,64 @@ export default function Home() {
     else answer = result.answer;
     const chatGptMessage = {
       content: answer,
-      sender: "chatgpt",
+      sender: "boot",
     };
-
-    setMessages([...messages, chatGptMessage]);
+    const userMessage = { content: newMessage.content, sender: "user" };
+    const all = [userMessage, chatGptMessage];
+    setMessages([...messages, ...all]);
   }
 
   return (
-    <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg p-4">
-      <div className="space-y-4 max-h-24 overflow-auto max-w-40">
-        {messages.map((message: any, index: any) => (
-          <div
-            key={index}
-            className={message.sender === "user" ? "text-right" : "text-left"}
-          >
-            <span className="font-bold">{message.sender}</span>
-            <p
-              className="w-full p-3 rounded-lg inline-block"
-              style={{ wordWrap: "break-word" }}
+    <div
+      className="mx-auto bg-black bg-opacity-50 rounded-lg shadow-lg p-4 z-40 mb-5 w-2/4"
+      style={{
+        height: "40%",
+      }}
+    >
+      <div
+        className="space-y-4 overflow-auto   text-yellow-300"
+        style={{
+          height: "85%",
+        }}
+      >
+        {messages.map((message: any, index: any) => {
+          return (
+            <div
+              key={index}
+              className={
+                message.sender === "user"
+                  ? " text-yellow-300 flex  items-center justify-center m-5 mb-0 mt-0"
+                  : " text-white flex items-center justify-center m-5 mb-0 mt-0"
+              }
             >
-              {message.content}
-            </p>
-          </div>
-        ))}
+              <span
+                className={
+                  message.sender === "user"
+                    ? "font-bold text-yellow-300"
+                    : "font-bold"
+                }
+              >
+                [{message.sender}]
+              </span>
+              <p
+                className="w-full p-3 rounded-lg inline-block text-whit "
+                style={{ wordWrap: "break-word" }}
+              >
+                {message.content}
+              </p>
+            </div>
+          );
+        })}
       </div>
 
-      <form className="mt-4" onSubmit={handleMessageSubmit}>
+      <form className="mt-4 mb-0" onSubmit={handleMessageSubmit}>
         <input
           type="text"
-          className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:ring-blue-500"
-          placeholder="Type your message..."
+          className="w-full px-4 py-2 rounded-lg  bg-transparent border-none outline-none text-white"
+          placeholder="Press enter to type your message"
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
         />
-        <button
-          type="submit"
-          className="w-full mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-500"
-        >
-          Send
-        </button>
       </form>
     </div>
   );
